@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+</head>
+<body>
+<!---sesuai key di json-->
+<h1 id="abc"></h1>
+<script>
+
+    const ajax = new XMLHttpRequest();
+    ajax.open("GET", "api/hello.json");
+    ajax.addEventListener("load", function (){
+        const json = JSON.parse(ajax.responseText);
+        // sesuai element id
+        const header = document.getElementById("abc");
+        header.textContent = json.abc;
+    });
+    ajax.send();
+
+</script>
+</body>
+</html>
